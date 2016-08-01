@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 import javax.jws.soap.SOAPBinding.Use;
 
-import Bussiness.User;
+import Bussiness.BankUser;
 
 public class Interface {
 
@@ -17,7 +17,7 @@ public class Interface {
 		Scanner scanner=new Scanner(System.in);
 		String mainoption;
 		int mainoptionint;
-		User user;
+		BankUser user;
 		do{
 			System.out.println("Enter Options Login Register");
 			mainoption=scanner.nextLine();
@@ -26,6 +26,7 @@ public class Interface {
 			}
 			catch(Exception e){
 				mainoptionint=-1;
+			
 			}
 			
 			if(mainoptionint==Options.Register){
@@ -38,7 +39,7 @@ public class Interface {
 				break;
 			}
 			
-		}while(mainoption.equals("1"));
+		}while(!mainoption.equals("1"));
 		
 		return;
 	}
@@ -80,12 +81,12 @@ public class Interface {
 		return;
 	}
 	
-	public static User Login(Scanner scanner){
+	public static BankUser Login(Scanner scanner){
 		System.out.println("Enter User Name:- ");
 		String uname=scanner.next();
 		System.out.println("Enter Password:- ");
 		String pwd=scanner.next();
-		User user=new User(uname, pwd);
+		BankUser user=new BankUser(uname, pwd);
 		return user;
 		
 	}
